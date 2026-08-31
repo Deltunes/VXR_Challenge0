@@ -15,6 +15,9 @@ public class turnBasedBattle : MonoBehaviour
     [SerializeField] float fireTPCost = 30.0f;
     [SerializeField] float electricTPCost = 50.0f;
     [SerializeField] float healTPCost = 70.0f;
+    [SerializeField] float fireDamage = 20.0f;
+    [SerializeField] float electricDamage = 40.0f;
+    [SerializeField] float healAmount = 50.0f;
 
     private int turnState;
 
@@ -64,7 +67,7 @@ public class turnBasedBattle : MonoBehaviour
         {
             if (player.currTP >= fireTPCost)
             {
-                enemy.damageEnemy(30.0f, "fire");
+                enemy.damageEnemy(fireDamage, "fire");
                 player.TPDecrease(fireTPCost);
                 changeTurn();
             }
@@ -77,7 +80,7 @@ public class turnBasedBattle : MonoBehaviour
         {
             if (player.currTP >= electricTPCost)
             {
-                enemy.damageEnemy(50.0f, "electric");
+                enemy.damageEnemy(electricDamage, "electric");
                 player.TPDecrease(electricTPCost);
                 changeTurn();
             }
@@ -90,7 +93,7 @@ public class turnBasedBattle : MonoBehaviour
         {
             if (player.currTP >= healTPCost)
             {
-                player.healPlayer(50.0f);
+                player.healPlayer(healAmount);
                 player.TPDecrease(healTPCost);
                 changeTurn();
             }

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class enemyTurnBased : MonoBehaviour
@@ -14,14 +13,6 @@ public class enemyTurnBased : MonoBehaviour
     {
         currHealth = maxHealth;
         enemyHealthBar.UpdateHealth(currHealth, maxHealth);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            damageEnemy(5.0f, "standard");
-        }
     }
 
     public void damageEnemy(float damageAmount, string damageType)

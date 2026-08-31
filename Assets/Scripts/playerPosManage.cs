@@ -9,7 +9,11 @@ public class playerPosManage : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject dragonModel;
-    void Start()
+    [SerializeField] AudioSource screamSounds;
+    [SerializeField] AudioSource fireSounds;
+    [SerializeField] AudioSource birdSounds;
+    [SerializeField] GameObject fires;
+    private void Start()
     {
         if (GameManager.battleWinState != 0)
         {
@@ -27,7 +31,19 @@ public class playerPosManage : MonoBehaviour
             {
                 enemy.gameObject.SetActive(false);
                 dragonModel.gameObject.SetActive(false);
+                screamSounds.enabled = false;
+                fireSounds.enabled = false;
+                birdSounds.enabled = true;
+                fires.gameObject.SetActive(false);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 }

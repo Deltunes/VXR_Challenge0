@@ -21,17 +21,17 @@ public class zone_detector : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            lerpSpeed = 8f;
+            lerpSpeed = 10f;
             approachPos = true;
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (approachPos)
         {
             cam.transform.position = Vector3.MoveTowards(cam.transform.position, cam_pos.position, lerpSpeed * Time.deltaTime);
-            lerpSpeed = lerpSpeed * 1.01f;
+            lerpSpeed = lerpSpeed * 1.04f;
             if (cam.transform.position == cam_pos.position)
             {
                 approachPos = false;
